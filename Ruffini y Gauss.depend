@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1569607826 source:c:\users\cetec\desktop\programacion guia 6\ruffini y gauss\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"libre.h"
+
+1569608230 c:\users\cetec\desktop\programacion guia 6\ruffini y gauss\libre.h
+
