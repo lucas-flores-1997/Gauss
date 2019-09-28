@@ -45,10 +45,10 @@ void printVF(float V[], int dim)
 int countdiv(int j)
 {
     int i, count=0, w;
-    w=j;
+    w=fabs(j);
     for(i=1; i<=w; i++)
     {
-        if(j%i==0)
+        if(w%i==0)
         {
             count++;
         }
@@ -59,7 +59,7 @@ int countdiv(int j)
 void buscdiv(int V[],int coef)
 {
     int i, e=0;
-    for(i=1; i<=coef; i++)
+    for(i=1; i<=fabs(coef); i++)
     {
         if(coef%i == 0)
         {
@@ -71,7 +71,7 @@ void buscdiv(int V[],int coef)
 void buscdivf(float V[],int coef)
 {
     int i, e=0;
-    for(i=1; i<=coef; i++)
+    for(i=1; i<=fabs(coef); i++)
     {
         if(coef%i == 0)
         {
@@ -98,32 +98,37 @@ void posrai(float V[],int p,int in)
     {
         for (j=0; j<len2; j++)
         {
-            V[k]=divi[i]/divp[j];
+            V[k]=fabs(divi[i])/(divp[j]);
             k++;
         }
     }
-     for (i=0; i<len3; i++)
+    for (i=0; i<len3; i++)
     {
         for (j=0; j<len2; j++)
         {
-            V[k]=-(divi[i]/divp[j]);
+            V[k]=-(fabs(divi[i])/(divp[j]));
             k++;
         }
     }
 }
 
-int contra(float V[],int Vp[],int a, int b){
-int i,j,c=0;
-
-printf("%d,%d \n",a,b);
-float sum;
-for (i=0;i<a;i++){
-   for (j=0,sum=0;j<b;j++){
-   sum+=(pow(V[i],j)*Vp[j]);
-   }
-   if(sum==0) c++;
-}
-
-return c;
+int contra(float V[],int Vp[],int a,int b)
+{
+    int i,j,c=0;
+    float sum,p;
+    printV(Vp,b);
+    printVF(V,a);
+    for (i=0; i<=a; i++)
+    {
+        for (j=0,sum=0; j<=b; j++)
+        {
+            p=pow(V[i],j);
+            sum+=(p*Vp[j]);
+           }
+        if(sum==0){
+            c++;
+           }
+    }
+    return c;
 }
 
