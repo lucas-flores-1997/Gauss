@@ -15,7 +15,7 @@ int contra(float V[],int Vp[],int a,int b);
 
 void main()
 {
-    int len1, len2, len3,len4,a;
+    int len1, len2, len3,len4,len5,a;
 
     printf("Indicar el grado de la funcion");
     scanf("%d", &len1);
@@ -39,20 +39,18 @@ void main()
     printV(divp, len2-1);
     printf("los divisores del coef independiente son:");
     printV(divi, len3-1);
-
     printf("----------------------------------------------------------------------------------------------------\n");
-
-    float posib[((len2)*(len3))*2];
-    a= sizeof(posib);
-    printf("----%d-----",a);
+    len4=((len2)*(len3))*2-1;
+    float posib[len4];
 
     posrai(posib,ecu[len1],ecu[0]);
-    printVF(posib,((len2)*(len3))*2-1);
+    printVF(posib,len4);
 
     printf("------------------------------------------------------------------------------------------------------\n");
 
-    len4=contra(posib,ecu,(((len2)*(len3))*2-1),len1);
-    printf("%d",len4);
+    len5=contra(posib,ecu,len4,len1);
+    printf("----%d---",len5);
+
 
 }
 
